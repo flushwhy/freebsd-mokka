@@ -15,7 +15,7 @@ The goal is a streamlined developer desktop built around KDE Plasma 6, Xorg, SDD
 
 ## Current scope
 
-The initial setup manages the Zsh and Starship configuration. Plasma, Kvantum, icons, fonts, wallpaper, and SDDM will be added as their configurations are tested on FreeBSD.
+The setup currently manages Zsh, Starship, and the Espresso Copper KDE color scheme. The custom Kvantum widget theme, Plasma layout, icons, fonts, wallpaper, and SDDM will be added after testing against the installed FreeBSD desktop.
 
 ## Requirements
 
@@ -47,7 +47,7 @@ cd freebsd-mokka
 sh setup.sh
 ```
 
-The setup script links the repository's Zsh and Starship configuration into your home directory. Existing files are backed up before they are replaced. It does not change your login shell or install packages automatically.
+The setup script links the repository's Zsh and Starship configuration and installs the Espresso Copper color scheme into your user data directory. Existing files are backed up before they are replaced. It does not change your login shell, modify system files, or install packages automatically.
 
 After setup, make Zsh your login shell if desired:
 
@@ -55,7 +55,7 @@ After setup, make Zsh your login shell if desired:
 chsh -s "$(command -v zsh)"
 ```
 
-Log out and back in for the login-shell change to take effect.
+Log out and back in for the login-shell change to take effect. Then open **System Settings → Colors & Themes → Colors** and select **Espresso Copper**.
 
 ## Repository layout
 
