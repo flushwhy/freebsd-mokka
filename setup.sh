@@ -61,7 +61,7 @@ fi
 
 backup_and_link "$ROOT/config/zsh/.zshrc" "$HOME/.zshrc"
 backup_and_link "$ROOT/config/starship/starship.toml" "$CONFIG_DIR/starship.toml"
-backup_and_link "$ROOT/config/kde/EspressoCopper.colors" "$DATA_DIR/color-schemes/NusaObsidian.colors"
+backup_and_link "$ROOT/config/kde/NusaObsidian.colors" "$DATA_DIR/color-schemes/NusaObsidian.colors"
 
 printf '\nMokka shell and KDE color configuration installed.\n'
 printf 'Select Nusa Obsidian in System Settings > Colors & Themes > Colors.\n'
