@@ -9,7 +9,7 @@ usage() {
     cat <<'EOF'
 Usage: sh setup.sh
 
-Link the Mokka Zsh and Starship configuration and install the Espresso Copper
+Link the Mokka Zsh and Starship configuration and install the Nusa Obsidian
 KDE color scheme for the current user. Existing files are backed up first.
 No packages are installed, system files are changed, or login shell is changed.
 EOF
@@ -61,8 +61,9 @@ fi
 
 backup_and_link "$ROOT/config/zsh/.zshrc" "$HOME/.zshrc"
 backup_and_link "$ROOT/config/starship/starship.toml" "$CONFIG_DIR/starship.toml"
-backup_and_link "$ROOT/config/kde/EspressoCopper.colors" "$DATA_DIR/color-schemes/EspressoCopper.colors"
+backup_and_link "$ROOT/config/kde/EspressoCopper.colors" "$DATA_DIR/color-schemes/NusaObsidian.colors"
 
 printf '\nMokka shell and KDE color configuration installed.\n'
-printf 'Select Espresso Copper in System Settings > Colors & Themes > Colors.\n'
+printf 'Select Nusa Obsidian in System Settings > Colors & Themes > Colors.\n'
+printf 'Copy the KvBrown SVG to ~/.config/Kvantum/NusaObsidian/NusaObsidian.svg, then select NusaObsidian in Kvantum Manager.\n'
 printf 'To use Zsh as your login shell: chsh -s "$(command -v zsh)"\n'
