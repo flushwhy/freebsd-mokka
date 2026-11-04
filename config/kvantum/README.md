@@ -1,15 +1,21 @@
 # Kvantum
 
-The KDE color scheme is the first desktop layer. The custom Kvantum widget theme is intentionally staged after checking which themes and Qt style plugin are installed by the FreeBSD package.
+The Nusa Obsidian Kvantum config pairs with the installed KvBrown SVG as a starting point. This keeps the existing widget geometry while applying Nusa's palette.
 
-## Inspect installed themes
+- Obsidian surfaces: `#17191B`
+- Espresso elevated surfaces: `#292725`
+- Copper focus and selection: `#B47750`
+- Sand secondary accent: `#D2B99A`
+- Ivory text: `#E8E3DA`
 
-After installing the `Kvantum` package, run:
+Install the user theme from the repository root:
 
 ```sh
-find /usr/local/share/Kvantum -mindepth 1 -maxdepth 1 -type d -print
+mkdir -p ~/.config/Kvantum/NusaObsidian
+cp /usr/local/share/Kvantum/KvBrown/KvBrown.svg \
+  ~/.config/Kvantum/NusaObsidian/NusaObsidian.svg
+cp config/kvantum/NusaObsidian.kvconfig \
+  ~/.config/Kvantum/NusaObsidian/NusaObsidian.kvconfig
 ```
 
-Then open **Kvantum Manager** from the application launcher and inspect the available themes. Do not assume a Linux theme path or copy files into system directories.
-
-The custom theme will use the Espresso Copper palette: near-black espresso surfaces, warm off-white text, and restrained copper focus/hover states. Keep the SVG theme assets and matching `.kvconfig` together in a user-installed theme directory under `~/.config/Kvantum/`.
+Select **NusaObsidian** in Kvantum Manager. Keep the SVG and matching `.kvconfig` together in the user theme directory; do not modify the system-installed theme.
