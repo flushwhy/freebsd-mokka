@@ -1,21 +1,24 @@
 # freebsd-mokka
 
-A reproducible, Git-managed FreeBSD 15 workstation setup with a warm, dark Mokka-inspired visual identity.
+A reproducible, Git-managed FreeBSD 15 workstation setup with a polished Mokka-inspired KDE desktop and Nusa's own visual identity.
 
-The goal is a streamlined developer desktop built around KDE Plasma 6, Xorg, SDDM, Kvantum, Zsh, and Starship. This is an original Mokka-inspired configuration, not a copy of another distribution's desktop.
+Mokka is the UI reference: refined spacing, rounded controls, cohesive application styling, a considered panel and dock, and restrained effects. Nusa supplies the identity: an obsidian and espresso foundation with copper, sand, and ivory accents. This is an original desktop design, not a copy of another distribution.
 
-## Design direction
+## Visual identity
 
-- Deep espresso and charcoal surfaces
-- Muted copper / bronze accents
-- Restrained transparency and visual effects
-- Consistent KDE and application styling
-- A compact, useful developer shell
-- Minimal dependencies and no unnecessary configuration framework
+| Role | Color | Hex |
+|---|---|---|
+| Obsidian | Primary dark background | `#17191B` |
+| Espresso | Window and elevated surfaces | `#292725` |
+| Copper | Focus, selection, and key accents | `#B47750` |
+| Sand | Secondary warm accent | `#D2B99A` |
+| Ivory | Primary text | `#E8E3DA` |
+
+Use copper sparingly. Keep large surfaces neutral and dark; sand and ivory provide warmth and readability. Avoid turning every control brown or adding decorative effects without a purpose.
 
 ## Current scope
 
-The setup currently manages Zsh, Starship, and the Espresso Copper KDE color scheme. The custom Kvantum widget theme, Plasma layout, icons, fonts, wallpaper, and SDDM will be added after testing against the installed FreeBSD desktop.
+The repository provides the Zsh and Starship configuration, the Nusa Obsidian KDE color scheme, and a matching Kvantum configuration. The Plasma layout, window decorations, icons, fonts, wallpaper, and SDDM styling are the remaining desktop-polish work.
 
 ## Requirements
 
@@ -24,22 +27,15 @@ The setup currently manages Zsh, Starship, and the Espresso Copper KDE color sch
 - Git
 - Zsh
 - Starship
+- Kvantum for the custom Qt widget style
 
-Install the shell tools with:
-
-```sh
-sudo pkg install git zsh starship
-```
-
-Kvantum can be installed when beginning the application-theme setup:
+Install the shell tools and Kvantum with FreeBSD packages as needed:
 
 ```sh
-sudo pkg install kvantum
+pkg install git zsh starship kvantum
 ```
 
-## Setup
-
-Clone the repository and run:
+Run the setup as your regular desktop user:
 
 ```sh
 git clone https://github.com/flushwhy/freebsd-mokka.git
@@ -47,7 +43,25 @@ cd freebsd-mokka
 sh setup.sh
 ```
 
-The setup script links the repository's Zsh and Starship configuration and installs the Espresso Copper color scheme into your user data directory. Existing files are backed up before they are replaced. It does not change your login shell, modify system files, or install packages automatically.
+The setup script links the repository's Zsh and Starship configuration and installs the Nusa Obsidian KDE color scheme. Existing files are backed up before replacement. It does not install packages, modify system files, or change the login shell.
+
+Select **Nusa Obsidian** in **System Settings → Colors & Themes → Colors**.
+
+## Kvantum
+
+The matching Kvantum palette is in `config/kvantum/NusaObsidian.kvconfig`. For now, use the installed `KvBrown.svg` as the widget-shape base:
+
+```sh
+mkdir -p ~/.config/Kvantum/NusaObsidian
+cp /usr/local/share/Kvantum/KvBrown/KvBrown.svg \
+  ~/.config/Kvantum/NusaObsidian/NusaObsidian.svg
+cp config/kvantum/NusaObsidian.kvconfig \
+  ~/.config/Kvantum/NusaObsidian/NusaObsidian.kvconfig
+```
+
+Then select **NusaObsidian** in Kvantum Manager and ensure **Kvantum** is selected under **System Settings → Colors & Themes → Application Style**. The SVG provides the existing Mokka-like widget geometry; the config supplies Nusa's palette.
+
+## Shell
 
 After setup, make Zsh your login shell if desired:
 
@@ -55,17 +69,7 @@ After setup, make Zsh your login shell if desired:
 chsh -s "$(command -v zsh)"
 ```
 
-Log out and back in for the login-shell change to take effect. Then open **System Settings → Colors & Themes → Colors** and select **Espresso Copper**.
-
-## Repository layout
-
-```text
-config/
-  starship/starship.toml
-  zsh/.zshrc
-setup.sh
-packages.txt
-```
+Log out and back in for the login-shell change to take effect.
 
 ## Principles
 
