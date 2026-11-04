@@ -1,0 +1,15 @@
+{
+  "KPlugin": {
+    "Authors": [
+      {
+        "Name": "Nusa"
+      }
+    ],
+    "Category": "Plasma Theme",
+    "Description": "A rounded, warm-dark Plasma style for the Nusa desktop.",
+    "EnabledByDefault": true,
+    "Id": "NusaObsidian",
+    "License": "MIT",
+    "Name": "Nusa Obsidian"
+  }
+}
