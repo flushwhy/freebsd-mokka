@@ -3,14 +3,15 @@ set -eu
 
 ROOT=$(CDPATH= cd -- "$(dirname -- "$0")" && pwd)
 CONFIG_DIR="${XDG_CONFIG_HOME:-$HOME/.config}"
+DATA_DIR="${XDG_DATA_HOME:-$HOME/.local/share}"
 
 usage() {
     cat <<'EOF'
 Usage: sh setup.sh
 
-Link the Mokka Zsh and Starship configuration into the current user's home.
-Existing files are backed up before replacement. No packages are installed and
-the login shell is not changed.
+Link the Mokka Zsh and Starship configuration and install the Espresso Copper
+KDE color scheme for the current user. Existing files are backed up first.
+No packages are installed, system files are changed, or login shell is changed.
 EOF
 }
 
@@ -60,6 +61,8 @@ fi
 
 backup_and_link "$ROOT/config/zsh/.zshrc" "$HOME/.zshrc"
 backup_and_link "$ROOT/config/starship/starship.toml" "$CONFIG_DIR/starship.toml"
+backup_and_link "$ROOT/config/kde/EspressoCopper.colors" "$DATA_DIR/color-schemes/EspressoCopper.colors"
 
-printf '\nMokka shell configuration installed.\n'
+printf '\nMokka shell and KDE color configuration installed.\n'
+printf 'Select Espresso Copper in System Settings > Colors & Themes > Colors.\n'
 printf 'To use Zsh as your login shell: chsh -s "$(command -v zsh)"\n'
