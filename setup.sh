@@ -42,6 +42,21 @@ backup_and_link() {
     printf 'Linked: %s -> %s\n' "$target_path" "$source_path"
 }
 
+install_aurorae_theme() {
+    source_dir="$ROOT/config/aurorae/NusaObsidian"
+    theme_dir="$DATA_DIR/aurorae/themes/NusaObsidian"
+
+    if [ ! -d "$source_dir" ]; then
+        printf 'Nusa Aurorae theme source not found; skipping window decoration.\n'
+        return
+    fi
+
+    mkdir -p "$DATA_DIR/aurorae/themes"
+    rm -rf "$theme_dir"
+    cp -R "$source_dir" "$theme_dir"
+    printf 'Installed Nusa Obsidian window decoration: %s\n' "$theme_dir"
+}
+
 install_plasma_style() {
     default_theme=""
     for candidate in /usr/local/share/plasma/desktoptheme/default /usr/share/plasma/desktoptheme/default; do
@@ -92,8 +107,10 @@ backup_and_link "$ROOT/config/zsh/.zshrc" "$HOME/.zshrc"
 backup_and_link "$ROOT/config/starship/starship.toml" "$CONFIG_DIR/starship.toml"
 backup_and_link "$ROOT/config/kde/NusaObsidian.colors" "$DATA_DIR/color-schemes/NusaObsidian.colors"
 install_plasma_style
+install_aurorae_theme
 
 printf '\nNusa shell and KDE configuration installed.\n'
 printf 'Select Nusa Obsidian in System Settings > Colors & Themes > Colors and Plasma Style.\n'
+printf 'Select Nusa Obsidian under System Settings > Appearance > Window Decorations.\n'
 printf 'Copy the KvBrown SVG to ~/.config/Kvantum/NusaObsidian/NusaObsidian.svg, then select NusaObsidian in Kvantum Manager.\n'
 printf 'To use Zsh as your login shell: chsh -s "$(command -v zsh)"\n'
