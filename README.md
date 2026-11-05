@@ -21,7 +21,7 @@ Use copper sparingly. Keep large surfaces neutral and dark; sand and ivory provi
 The repository currently provides:
 
 - An enhanced Zsh setup with autosuggestions, syntax highlighting, fuzzy search, and Starship.
-- A matching Nusa Obsidian Konsole color scheme.
+- A Nusa Obsidian Konsole profile with JetBrainsMono Nerd Font, translucent background, and matching colors.
 - The Nusa Obsidian KDE color scheme.
 - A matching Kvantum configuration.
 - A Plasma 6 desktop theme with rounded floating-panel artwork.
@@ -65,7 +65,7 @@ In **System Settings → Colors & Themes → Fonts**, choose Cantarell for the g
 - Starship
 - Kvantum for the custom Qt widget style
 - Papirus icon theme
-- Cantarell and JetBrains Mono fonts
+- Cantarell and JetBrains Mono Nerd Font
 
 Install the shell tools and desktop theme packages as needed:
 
@@ -81,7 +81,7 @@ cd freebsd-mokka
 sh setup.sh
 ```
 
-The setup script links the repository's Zsh and Starship configuration, installs the Nusa Obsidian KDE and Konsole color schemes, Plasma Style, Aurorae window decoration, and the Nusa Mokka Plasma layout template under `~/.local/share/plasma/`. Existing shell and color-scheme files are backed up before replacement. The Plasma style is generated from the system's installed Breeze default theme. The script does not install packages, modify system files, or change the login shell.
+The setup script links the repository's Zsh and Starship configuration, installs the Nusa Obsidian KDE and Konsole profile/color scheme, Plasma Style, Aurorae window decoration, and the Nusa Mokka Plasma layout template under `~/.local/share/`. Existing shell and color-scheme files are backed up before replacement. The Plasma style is generated from the system's installed Breeze default theme. The script does not install packages, modify system files, or change the login shell.
 
 Select **Nusa Obsidian** under **System Settings → Colors & Themes → Colors** and **System Settings → Colors & Themes → Plasma Style**. For window decorations, select **Breeze** under **System Settings → Colors & Themes → Window Decorations** and open its configuration. Choose **Small** or **Tiny** button size, enable the circle around the close button if desired, and disable the title-bar gradient for the flatter Nusa look. Keep the Nusa Obsidian color scheme selected; Breeze supplies the native button behavior and layout while Nusa supplies the palette. The custom **Nusa Obsidian** Aurorae decoration is still installed as an optional alternative. Select it in Window Decorations if you prefer the fully custom rounded title bar. Select **Papirus-Dark** under **System Settings → Colors & Themes → Icons**. To add the two-panel layout, right-click the desktop, choose **Add Panel → Nusa Mokka**, and let Plasma create the menu bar and dock. This is an opt-in layout action so rerunning setup does not replace an existing panel arrangement. If a style or template does not appear immediately, log out and back in.
 
@@ -115,7 +115,9 @@ Then select **NusaObsidian** in Kvantum Manager and ensure **Kvantum** is select
 
 ## Terminal
 
-The Konsole color scheme uses Nusa's obsidian background, warm ivory text, and restrained copper accents. After running setup, open **Konsole → Settings → Edit Current Profile → Appearance** and select **Nusa Obsidian**. Set the profile font to **JetBrainsMono Nerd Font** at a comfortable size (start at 10–11 pt). This includes the extra symbols used by Starship and modern terminal tools.
+The **Nusa Obsidian** Konsole profile is installed by `setup.sh`. It selects **JetBrainsMono Nerd Font** at 10 pt, the Nusa color scheme, and a 92% opaque background with blur enabled. In Konsole, open **Settings → Switch Profile → Nusa Obsidian** (or choose it from the Profiles menu). Adjust the font size in **Settings → Edit Current Profile → Appearance** if needed.
+
+For the translucent background to blur the desktop behind Konsole, enable **Blur** under **System Settings → Workspace Behavior → Desktop Effects**. The blur is subtle; the terminal background remains mostly opaque for readability.
 
 The Zsh configuration enables command autosuggestions, syntax highlighting, case-insensitive completion, and fuzzy shortcuts. `Ctrl+R` searches command history, `Ctrl+T` finds files, and `Alt+C` jumps to a directory with fzf. `z` uses zoxide's directory history. `eza` provides enhanced listings, `bat` is available as `c`, `v` opens Neovim, and `fastfetch` shows a system summary when a new interactive shell starts.
 
