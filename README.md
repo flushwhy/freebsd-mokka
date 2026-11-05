@@ -30,7 +30,17 @@ The Plasma style is based on the installed Breeze default theme. The setup scrip
 
 The existing KDE floating panel is retained. The Nusa panel artwork provides a rounded pill background and uses the Nusa dark palette.
 
-Still to build: icons, fonts, wallpaper, panel widget layout, and SDDM styling.
+## Icons
+
+Use **Papirus-Dark** as the icon foundation for now. It has broad application coverage, works well with dark desktops, and is packaged for FreeBSD. Keeping the upstream icon set intact is more maintainable than copying hundreds of icons into this repository; Nusa-specific folder accents can be added after checking the base theme in Plasma.
+
+Install it with:
+
+```sh
+sudo pkg install papirus-icon-theme
+```
+
+Then open **System Settings → Colors & Themes → Icons**, select **Papirus-Dark**, and apply it. If it does not appear, log out and back in.
 
 ## Requirements
 
@@ -40,11 +50,12 @@ Still to build: icons, fonts, wallpaper, panel widget layout, and SDDM styling.
 - Zsh
 - Starship
 - Kvantum for the custom Qt widget style
+- Papirus icon theme
 
-Install the shell tools and Kvantum with FreeBSD packages as needed:
+Install the shell tools and desktop theme packages as needed:
 
 ```sh
-pkg install git zsh starship kvantum
+sudo pkg install git zsh starship kvantum papirus-icon-theme
 ```
 
 Run the setup as your regular desktop user:
@@ -57,7 +68,7 @@ sh setup.sh
 
 The setup script links the repository's Zsh and Starship configuration, installs the Nusa Obsidian KDE color scheme, and installs the Nusa Plasma Style under `~/.local/share/plasma/desktoptheme/`, and installs the Nusa Aurorae window decoration under `~/.local/share/aurorae/themes/`. Existing shell and color-scheme files are backed up before replacement. The Plasma style is generated from the system's installed Breeze default theme. The script does not install packages, modify system files, or change the login shell.
 
-Select **Nusa Obsidian** under **System Settings → Colors & Themes → Colors**, **System Settings → Colors & Themes → Plasma Style**, and **System Settings → Appearance → Window Decorations**. If the style does not appear immediately, log out and back in.
+Select **Nusa Obsidian** under **System Settings → Colors & Themes → Colors**, **System Settings → Colors & Themes → Plasma Style**, and **System Settings → Appearance → Window Decorations**. Select **Papirus-Dark** under **System Settings → Colors & Themes → Icons**. If a style does not appear immediately, log out and back in.
 
 ## Kvantum
 
