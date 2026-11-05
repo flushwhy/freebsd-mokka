@@ -127,7 +127,7 @@ install_plasma_style() {
 install_nvchad() {
     target_dir="$CONFIG_DIR/nvim"
 
-    if [ ! -x "$(command -v nvim 2>/dev/null || true)" ]; then
+    if ! command -v nvim >/dev/null 2>&1; then
         printf 'Neovim not found; skipping NvChad. Install Neovim, then rerun setup.sh.\n'
         return
     fi
