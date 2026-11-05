@@ -46,7 +46,7 @@ alias vim='nvim'
 alias vi='nvim'
 
 if command -v bat >/dev/null 2>&1; then
-    alias cat='bat --style=plain'
+    alias c='bat --style=plain'
 fi
 
 # Smart directory jumping.
@@ -74,7 +74,7 @@ if [[ -r /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]]
     ZSH_HIGHLIGHT_STYLES[alias]='fg=#b47750'
     ZSH_HIGHLIGHT_STYLES[unknown-token]='fg=#c76b61,bold'
     ZSH_HIGHLIGHT_STYLES[reserved-word]='fg=#b47750,bold'
-    ZSH_HIGHLIGHT_STYLES[ path]='fg=#e8e3da,underline'
+    ZSH_HIGHLIGHT_STYLES[path]='fg=#e8e3da,underline'
 fi
 
 # Nusa prompt.
