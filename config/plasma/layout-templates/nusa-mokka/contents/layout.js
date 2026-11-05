@@ -16,7 +16,7 @@ menuBar.floating = false;
 menuBar.height = 36;
 menuBar.lengthMode = "fill";
 menuBar.alignment = "left";
-menuBar.hiding = "none";
+menuBar.hiding = "dodgewindows";
 
 addIfAvailable(menuBar, "org.kde.plasma.kickoff");
 addIfAvailable(menuBar, "org.kde.plasma.panelspacer");
