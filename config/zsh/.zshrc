@@ -68,7 +68,6 @@ fi
 # Colorize commands as you type. Keep this last among Zsh plugins.
 if [[ -r /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]]; then
     source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-    typeset -A ZSH_HIGHLIGHT_STYLES
     ZSH_HIGHLIGHT_STYLES[command]='fg=#d2b99a'
     ZSH_HIGHLIGHT_STYLES[builtin]='fg=#b47750'
     ZSH_HIGHLIGHT_STYLES[alias]='fg=#b47750'
