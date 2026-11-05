@@ -17,7 +17,7 @@ if [ ! -f "$BREEZE_DIR/Main.qml" ] || [ ! -f "$BREEZE_DIR/theme.conf" ]; then
     exit 1
 fi
 
-if [ ! -f "$SOURCE_DIR/theme.conf" ] || [ ! -f "$SOURCE_DIR/metadata.desktop" ] || [ ! -f "$SOURCE_DIR/nusa-logo.svg" ] || [ ! -f "$SOURCE_DIR/nusa-background.svg" ] || [ ! -f "$SOURCE_DIR/Main.qml" ]; then
+if [ ! -f "$SOURCE_DIR/theme.conf" ] || [ ! -f "$SOURCE_DIR/metadata.desktop" ] || [ ! -f "$SOURCE_DIR/nusa-logo.svg" ] || [ ! -f "$SOURCE_DIR/nusa-background.svg" ] || [ ! -f "$SOURCE_DIR/Main.qml" ] || [ ! -f "$SOURCE_DIR/Login.qml" ]; then
     printf 'Nusa SDDM theme source is incomplete: %s\n' "$SOURCE_DIR" >&2
     exit 1
 fi
@@ -37,6 +37,7 @@ cp "$SOURCE_DIR/metadata.desktop" "$THEME_DIR/metadata.desktop"
 cp "$SOURCE_DIR/nusa-logo.svg" "$THEME_DIR/nusa-logo.svg"
 cp "$SOURCE_DIR/nusa-background.svg" "$THEME_DIR/nusa-background.svg"
 cp "$SOURCE_DIR/Main.qml" "$THEME_DIR/Main.qml"
+cp "$SOURCE_DIR/Login.qml" "$THEME_DIR/Login.qml"
 
 printf '\nInstalled Nusa Obsidian SDDM theme.\n'
 printf 'Open System Settings > Colors & Themes > Login Screen (SDDM), select Nusa Obsidian, then Apply.\n'
