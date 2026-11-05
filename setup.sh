@@ -10,9 +10,9 @@ usage() {
 Usage: sh setup.sh
 
 Link the Nusa Zsh and Starship configuration, install the Nusa Obsidian KDE
-and Konsole color schemes, Plasma Style, Aurorae window decoration, and the
-Nusa Mokka panel layout template for the current user. Existing shell and
-color-scheme files are backed up first. No packages are installed, active
+and Konsole profiles/color schemes, Plasma Style, Aurorae window decoration,
+and the Nusa Mokka panel layout template for the current user. Existing shell
+and color-scheme files are backed up first. No packages are installed, active
 panel layouts are changed, system files are changed, or login shell is changed.
 EOF
 }
@@ -60,16 +60,24 @@ install_plasma_layout() {
 
 install_konsole_scheme() {
     scheme="$ROOT/config/konsole/NusaObsidian.colorscheme"
+    profile="$ROOT/config/konsole/NusaObsidian.profile"
     scheme_dir="$DATA_DIR/konsole"
 
-    if [ ! -f "$scheme" ]; then
+    mkdir -p "$scheme_dir"
+
+    if [ -f "$scheme" ]; then
+        cp "$scheme" "$scheme_dir/NusaObsidian.colorscheme"
+        printf 'Installed Nusa Obsidian Konsole color scheme.\n'
+    else
         printf 'Nusa Konsole color scheme not found; skipping.\n'
-        return
     fi
 
-    mkdir -p "$scheme_dir"
-    cp "$scheme" "$scheme_dir/NusaObsidian.colorscheme"
-    printf 'Installed Nusa Obsidian Konsole color scheme: %s\n' "$scheme_dir"
+    if [ -f "$profile" ]; then
+        cp "$profile" "$scheme_dir/NusaObsidian.profile"
+        printf 'Installed Nusa Obsidian Konsole profile.\n'
+    else
+        printf 'Nusa Konsole profile not found; skipping.\n'
+    fi
 }
 
 install_aurorae_theme() {
@@ -144,7 +152,8 @@ install_plasma_layout
 printf '\nNusa shell and KDE configuration installed.\n'
 printf 'Select Nusa Obsidian in System Settings > Colors & Themes > Colors and Plasma Style.\n'
 printf 'Select Nusa Obsidian under System Settings > Appearance > Window Decorations.\n'
-printf 'In Konsole, open Settings > Edit Current Profile > Appearance and select Nusa Obsidian and JetBrainsMono Nerd Font.\n'
+printf 'In Konsole, choose Profiles > Nusa Obsidian to use JetBrainsMono Nerd Font and the translucent Nusa colors.\n'
+printf 'Enable the Blur desktop effect in System Settings > Workspace Behavior > Desktop Effects for background blur.\n'
 printf 'Add the Nusa Mokka layout from the desktop context menu > Add Panel > Nusa Mokka.\n'
 printf 'Install papirus-icon-theme, then select Papirus-Dark under System Settings > Colors & Themes > Icons.\n'
 printf 'Copy the KvBrown SVG to ~/.config/Kvantum/NusaObsidian/NusaObsidian.svg, then select NusaObsidian in Kvantum Manager.\n'
