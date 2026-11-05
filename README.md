@@ -58,13 +58,9 @@ In **System Settings → Colors & Themes → Fonts**, choose Cantarell for the g
 
 ## Nusa Tune
 
-Nusa Tune begins as a read-only FreeBSD diagnostics script. It records the release, CPU, VM type, scheduler, CPU frequency driver, network processing, and selected memory settings so future tweaks can be matched to real hardware and evidence. It does not change kernel or system settings. See [the tuning evidence and decisions](docs/tuning-evidence.md) before proposing any tweak.
+Nusa Tune is a general FreeBSD desktop-tuning guide, not a machine-specific diagnostic or auto-tuning script. It covers system responsiveness, CPU power policy, graphics, memory, networking, audio, and desktop-environment settings across different hardware and workloads. Hardware-specific options are clearly marked and never treated as universal defaults.
 
-Run it with:
-
-```sh
-sh nusa-tune.sh inspect
-```
+See [the Nusa Tune guide](docs/tuning-evidence.md) for recommendations, prerequisites, and sources.
 
 ## Requirements
 
