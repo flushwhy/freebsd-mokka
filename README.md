@@ -24,12 +24,13 @@ The repository currently provides:
 - The Nusa Obsidian KDE color scheme.
 - A matching Kvantum configuration.
 - A Plasma 6 desktop theme with rounded floating-panel artwork.
+- A custom Aurorae window decoration with rounded corners and warm title bars.
 
 The Plasma style is based on the installed Breeze default theme. The setup script copies that theme into the current user's data directory, then overlays the Nusa metadata and panel artwork. This keeps the full set of standard Plasma assets while version-controlling only the files Nusa changes.
 
 The existing KDE floating panel is retained. The Nusa panel artwork provides a rounded pill background and uses the Nusa dark palette.
 
-Still to build: window decorations, icons, fonts, wallpaper, panel widget layout, and SDDM styling.
+Still to build: icons, fonts, wallpaper, panel widget layout, and SDDM styling.
 
 ## Requirements
 
@@ -54,9 +55,9 @@ cd freebsd-mokka
 sh setup.sh
 ```
 
-The setup script links the repository's Zsh and Starship configuration, installs the Nusa Obsidian KDE color scheme, and installs the Nusa Plasma Style under `~/.local/share/plasma/desktoptheme/`. Existing shell and color-scheme files are backed up before replacement. The Plasma style is generated from the system's installed Breeze default theme. The script does not install packages, modify system files, or change the login shell.
+The setup script links the repository's Zsh and Starship configuration, installs the Nusa Obsidian KDE color scheme, and installs the Nusa Plasma Style under `~/.local/share/plasma/desktoptheme/`, and installs the Nusa Aurorae window decoration under `~/.local/share/aurorae/themes/`. Existing shell and color-scheme files are backed up before replacement. The Plasma style is generated from the system's installed Breeze default theme. The script does not install packages, modify system files, or change the login shell.
 
-Select **Nusa Obsidian** in **System Settings → Colors & Themes → Colors** and **System Settings → Colors & Themes → Plasma Style**. If the style does not appear immediately, log out and back in.
+Select **Nusa Obsidian** in **System Settings → Colors & Themes → Colors**  **System Settings → Colors & Themes → Plasma Style**, and **System Settings → Appearance → Window Decorations**. If the style does not appear immediately, log out and back in.
 
 ## Kvantum
 
