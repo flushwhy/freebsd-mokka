@@ -42,7 +42,7 @@ format = " [$all_status$ahead_behind]($style)"
 style = "bold #d6a477"
 conflicted = "="
 untracked = "?"
-stashed = "\\$"
+stashed = '\\$'
 modified = "!"
 staged = "+"
 renamed = "»"
