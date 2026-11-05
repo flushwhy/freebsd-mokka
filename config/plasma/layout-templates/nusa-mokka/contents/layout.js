@@ -43,6 +43,7 @@ dock.height = 56;
 dock.lengthMode = "fit";
 dock.alignment = "center";
 dock.hiding = "dodgewindows";
+dock.floating = true;
 
 addIfAvailable(dock, "org.kde.plasma.kickoff");
 addIfAvailable(dock, "org.kde.plasma.taskmanager");
