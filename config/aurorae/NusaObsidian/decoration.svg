@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" width="180" height="120" viewBox="0 0 180 120">
+  <defs>
+    <style>
+      .active { fill: #292725; }
+      .inactive { fill: #242322; }
+      .edge { fill: #17191B; fill-opacity: .98; }
+      .line { fill: none; stroke: #B47750; stroke-opacity: .72; stroke-width: 1; }
+    </style>
+  </defs>
+  <g id="decoration">
+    <path id="decoration-topleft" inkscape:label="#decoration-topleft" class="active" d="M18 0H30V30H0V18A18 18 0 0 1 18 0Z"/>
+    <rect id="decoration-top" inkscape:label="#decoration-top" class="active" x="30" y="0" width="120" height="30"/>
+    <path id="decoration-topright" inkscape:label="#decoration-topright" class="active" d="M150 0H162A18 18 0 0 1 180 18V30H150Z"/>
+    <rect id="decoration-left" inkscape:label="#decoration-left" class="edge" x="0" y="30" width="30" height="60"/>
+    <rect id="decoration-center" inkscape:label="#decoration-center" fill="#17191B" x="30" y="30" width="120" height="60"/>
+    <rect id="decoration-right" inkscape:label="#decoration-right" class="edge" x="150" y="30" width="30" height="60"/>
+    <path id="decoration-bottomleft" inkscape:label="#decoration-bottomleft" class="edge" d="M0 30H30V102H18A18 18 0 0 1 0 84Z"/>
+    <rect id="decoration-bottom" inkscape:label="#decoration-bottom" class="edge" x="30" y="90" width="120" height="12"/>
+    <path id="decoration-bottomright" inkscape:label="#decoration-bottomright" class="edge" d="M150 30H180V84A18 18 0 0 1 162 102H150Z"/>
+    <path d="M18 .5H162A17.5 17.5 0 0 1 179.5 18V30H.5V18A17.5 17.5 0 0 1 18 .5Z" fill="none" stroke="#B47750" stroke-opacity=".55"/>
+  </g>
+  <g id="decoration-inactive">
+    <path id="decoration-inactive-topleft" inkscape:label="#decoration-inactive-topleft" class="inactive" d="M18 0H30V30H0V18A18 18 0 0 1 18 0Z"/>
+    <rect id="decoration-inactive-top" inkscape:label="#decoration-inactive-top" class="inactive" x="30" y="0" width="120" height="30"/>
+    <path id="decoration-inactive-topright" inkscape:label="#decoration-inactive-topright" class="inactive" d="M150 0H162A18 18 0 0 1 180 18V30H150Z"/>
+    <rect id="decoration-inactive-left" inkscape:label="#decoration-inactive-left" class="edge" x="0" y="30" width="30" height="60"/>
+    <rect id="decoration-inactive-center" inkscape:label="#decoration-inactive-center" fill="#17191B" x="30" y="30" width="120" height="60"/>
+    <rect id="decoration-inactive-right" inkscape:label="#decoration-inactive-right" class="edge" x="150" y="30" width="30" height="60"/>
+    <path id="decoration-inactive-bottomleft" inkscape:label="#decoration-inactive-bottomleft" class="edge" d="M0 30H30V102H18A18 18 0 0 1 0 84Z"/>
+    <rect id="decoration-inactive-bottom" inkscape:label="#decoration-inactive-bottom" class="edge" x="30" y="90" width="120" height="12"/>
+    <path id="decoration-inactive-bottomright" inkscape:label="#decoration-inactive-bottomright" class="edge" d="M150 30H180V84A18 18 0 0 1 162 102H150Z"/>
+  </g>
+</svg>
