@@ -126,7 +126,7 @@ install_plasma_style() {
 
 install_flush_nvim() {
     target_dir="$CONFIG_DIR/nvim"
-    temp_dir="$CONFIG_DIR/nvim.install.$"
+    temp_dir="$CONFIG_DIR/nvim.install.$(date +%Y%m%d%H%M%S)"
     backup_dir=""
 
     if ! command -v nvim >/dev/null 2>&1; then
