@@ -60,8 +60,8 @@ Color=232,227,218
 
 [General]
 Description=Nusa Obsidian
-Opacity=0.95
-
+Opacity=0.92
+Blur=true
 
 [Cursor]
 Color=180,119,80
