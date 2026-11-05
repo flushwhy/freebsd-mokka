@@ -1,0 +1,17 @@
+{
+  "KPlugin": {
+    "Authors": [
+      {
+        "Name": "Nusa"
+      }
+    ],
+    "Category": "Panel",
+    "Description": "A macOS and Garuda Mokka-inspired menu bar and floating dock for Nusa",
+    "Icon": "plasma",
+    "Id": "nusa-mokka",
+    "Name": "Nusa Mokka",
+    "Version": "1.0",
+    "License": "MIT"
+  },
+  "KPackageStructure": "Plasma/LayoutTemplate"
+}
