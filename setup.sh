@@ -11,7 +11,7 @@ Usage: sh setup.sh
 
 Link the Nusa Zsh and Starship configuration, install the Nusa Obsidian KDE
 and Konsole profiles/color schemes, Plasma Style, Aurorae window decoration,
-and the Nusa Mokka panel layout template for the current user. Existing shell
+the Nusa Mokka panel layout template, and Flush Nvim (NvChad) for the current user. Existing shell
 and color-scheme files are backed up first. No packages are installed, active
 panel layouts are changed, system files are changed, or login shell is changed.
 EOF
@@ -124,7 +124,7 @@ install_plasma_style() {
 }
 
 
-install_nvchad() {
+install_flush_nvim() {
     target_dir="$CONFIG_DIR/nvim"
     temp_dir="$CONFIG_DIR/nvim.install.$"
     backup_dir=""
@@ -203,7 +203,7 @@ install_plasma_style
 install_konsole_scheme
 install_aurorae_theme
 install_plasma_layout
-install_nvchad
+install_flush_nvim
 
 printf '\nNusa shell and KDE configuration installed.\n'
 printf 'Select Nusa Obsidian in System Settings > Colors & Themes > Colors and Plasma Style.\n'
