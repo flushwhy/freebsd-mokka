@@ -13,5 +13,8 @@
     "Version": "1.0",
     "License": "MIT"
   },
-  "KPackageStructure": "Plasma/LayoutTemplate"
+  "KPackageStructure": "Plasma/LayoutTemplate",
+  "X-Plasma-ContainmentCategories": [
+    "panel"
+  ]
 }
