@@ -146,7 +146,6 @@ install_nvchad() {
     git clone https://github.com/NvChad/starter "$target_dir"
     printf 'Installed NvChad starter: %s\n' "$target_dir"
     printf 'Open Neovim once to finish installing NvChad plugins.\n'
-
 }
 
 case "${1:-}" in
@@ -185,5 +184,4 @@ printf 'Add the Nusa Mokka layout from the desktop context menu > Add Panel > Nu
 printf 'Install papirus-icon-theme, then select Papirus-Dark under System Settings > Colors & Themes > Icons.\n'
 printf 'Copy the KvBrown SVG to ~/.config/Kvantum/NusaObsidian/NusaObsidian.svg, then select NusaObsidian in Kvantum Manager.\n'
 printf 'Install the terminal tools listed in packages.txt with pkg, then start a new Zsh session.\n'
-printf 'Open Neovim once to let NvChad install its plugins.\n'
 printf 'To use Zsh as your login shell: chsh -s "$(command -v zsh)"\n'
