@@ -1,0 +1,14 @@
+[SddmGreeterTheme]
+Name=Nusa Obsidian
+Description=Nusa Obsidian theme based on the KDE Breeze SDDM theme
+Author=FlushLabs
+Copyright=Based on KDE Breeze SDDM theme; original Breeze copyrights retained in upstream files
+License=LGPL-2.0-or-later
+Type=sddm-theme
+Version=1.0
+Website=https://github.com/flushwhy/freebsd-mokka
+MainScript=Main.qml
+ConfigFile=theme.conf
+Theme-Id=nusa-obsidian
+Theme-API=2.0
+QtVersion=6
