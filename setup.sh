@@ -127,6 +127,11 @@ install_plasma_style() {
 install_nvchad() {
     target_dir="$CONFIG_DIR/nvim"
 
+    if [ ! -x "$(command -v nvim 2>/dev/null || true)" ]; then
+        printf 'Neovim not found; skipping NvChad. Install Neovim, then rerun setup.sh.\n'
+        return
+    fi
+
     if [ -e "$target_dir" ] || [ -L "$target_dir" ]; then
         printf 'Neovim config already exists; leaving it untouched: %s\n' "$target_dir"
         return
@@ -140,6 +145,8 @@ install_nvchad() {
     mkdir -p "$CONFIG_DIR"
     git clone https://github.com/NvChad/starter "$target_dir"
     printf 'Installed NvChad starter: %s\n' "$target_dir"
+    printf 'Open Neovim once to finish installing NvChad plugins.\n'
+
 }
 
 case "${1:-}" in
