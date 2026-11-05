@@ -3,5 +3,6 @@ git
 zsh
 starship
 
-# Desktop theming (install when beginning the KDE theme phase)
+# Desktop theming
 kvantum
+papirus-icon-theme
