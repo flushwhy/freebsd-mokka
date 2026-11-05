@@ -58,6 +58,20 @@ install_plasma_layout() {
     printf 'Installed Nusa Mokka panel layout: %s\n' "$template_dir"
 }
 
+install_konsole_scheme() {
+    scheme="$ROOT/config/konsole/NusaObsidian.colorscheme"
+    scheme_dir="$DATA_DIR/konsole"
+
+    if [ ! -f "$scheme" ]; then
+        printf 'Nusa Konsole color scheme not found; skipping.\n'
+        return
+    fi
+
+    mkdir -p "$scheme_dir"
+    cp "$scheme" "$scheme_dir/NusaObsidian.colorscheme"
+    printf 'Installed Nusa Obsidian Konsole color scheme: %s\n' "$scheme_dir"
+}
+
 install_aurorae_theme() {
     source_dir="$ROOT/config/aurorae/NusaObsidian"
     theme_dir="$DATA_DIR/aurorae/themes/NusaObsidian"
@@ -123,13 +137,16 @@ backup_and_link "$ROOT/config/zsh/.zshrc" "$HOME/.zshrc"
 backup_and_link "$ROOT/config/starship/starship.toml" "$CONFIG_DIR/starship.toml"
 backup_and_link "$ROOT/config/kde/NusaObsidian.colors" "$DATA_DIR/color-schemes/NusaObsidian.colors"
 install_plasma_style
+install_konsole_scheme
 install_aurorae_theme
 install_plasma_layout
 
 printf '\nNusa shell and KDE configuration installed.\n'
 printf 'Select Nusa Obsidian in System Settings > Colors & Themes > Colors and Plasma Style.\n'
 printf 'Select Nusa Obsidian under System Settings > Appearance > Window Decorations.\n'
+printf 'In Konsole, open Settings > Edit Current Profile > Appearance and select Nusa Obsidian.\n'
 printf 'Add the Nusa Mokka layout from the desktop context menu > Add Panel > Nusa Mokka.\n'
 printf 'Install papirus-icon-theme, then select Papirus-Dark under System Settings > Colors & Themes > Icons.\n'
 printf 'Copy the KvBrown SVG to ~/.config/Kvantum/NusaObsidian/NusaObsidian.svg, then select NusaObsidian in Kvantum Manager.\n'
+printf 'Install the terminal tools listed in packages.txt with pkg, then start a new Zsh session.\n'
 printf 'To use Zsh as your login shell: chsh -s "$(command -v zsh)"\n'
