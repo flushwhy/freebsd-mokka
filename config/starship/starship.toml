@@ -1,8 +1,8 @@
-# freebsd-mokka: compact Mokka-inspired prompt
+# freebsd-mokka: Nusa Obsidian developer prompt
 
 add_newline = false
 command_timeout = 1000
-format = "$username$hostname in $directory$git_branch$git_status$cmd_duration$line_break$character"
+format = "$username$hostname in $directory$git_branch$git_commit$git_state$git_status$git_metrics$cmd_duration$line_break$character"
 
 [username]
 style_user = "bold #e8e3da"
@@ -26,9 +26,58 @@ format = " [$symbol$branch]($style)"
 symbol = " "
 style = "bold #b58b68"
 
+[git_commit]
+format = " [#$hash$tag]($style)"
+commit_hash_length = 8
+only_detached = false
+tag_disabled = false
+style = "bold #8f8175"
+
+[git_state]
+format = " [$state( $progress_current/$progress_total)]($style)"
+style = "bold #c76b61"
+
 [git_status]
-format = "([$all_status$ahead_behind]($style))"
-style = "#d6a477"
+format = " [$all_status$ahead_behind]($style)"
+style = "bold #d6a477"
+conflicted = "="
+untracked = "?"
+stashed = "\\$"
+modified = "!"
+staged = "+"
+renamed = "»"
+deleted = "✘"
+ahead = "⇡"
+behind = "⇣"
+diverged = "⇕"
+
+[git_metrics]
+disabled = false
+format = " [+$added/−$deleted]($style)"
+added_style = "bold #9da982"
+deleted_style = "bold #c76b61"
+only_nonzero_diffs = true
+
+# Toolchain versions appear only in matching projects.
+[odin]
+format = " [$symbol$version]($style)"
+style = "bold #b47750"
+
+[golang]
+format = " [$symbol$version]($style)"
+style = "bold #8fbaad"
+
+[python]
+format = " [$symbol$version(\\($virtualenv\\))]($style)"
+style = "bold #d2b99a"
+
+[lua]
+format = " [$symbol$version]($style)"
+style = "bold #8fbaad"
+
+[cpp]
+format = " [$symbol$version]($style)"
+style = "bold #b47750"
 
 [cmd_duration]
 min_time = 1500
