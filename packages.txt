@@ -3,6 +3,19 @@ git
 zsh
 starship
 
+# Terminal experience
+zsh-autosuggestions
+zsh-syntax-highlighting
+zsh-completions
+fzf
+zoxide
+eza
+bat
+fd
+ripgrep
+fastfetch
+btop
+
 # Desktop theming
 kvantum
 papirus-icon-theme
