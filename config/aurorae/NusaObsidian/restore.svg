@@ -1,6 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
 <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 28 28">
-  <circle id="active-center" cx="14" cy="14" r="5" fill="#D2B99A"/>
-  <circle id="hover-center" cx="14" cy="14" r="10" fill="#D2B99A"/>
-  <path d="M12 10H18V16M16 12H10V18" fill="none" stroke="#17191B" stroke-width="1.5" stroke-linejoin="round"/>
+  <g id="active-center"><circle cx="14" cy="14" r="8" fill="#D2B99A"/><path d="M12 10H18V16M16 12H10V18" fill="none" stroke="#17191B" stroke-width="1.6" stroke-linejoin="round"/></g>
+  <g id="hover-center"><circle cx="14" cy="14" r="10" fill="#E8E3DA"/><path d="M12 10H18V16M16 12H10V18" fill="none" stroke="#17191B" stroke-width="1.6" stroke-linejoin="round"/></g>
 </svg>
