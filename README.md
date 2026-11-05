@@ -25,7 +25,7 @@ The repository currently provides:
 - The Nusa Obsidian KDE color scheme.
 - A matching Kvantum configuration.
 - A Plasma 6 desktop theme with rounded floating-panel artwork.
-- A custom Aurorae window decoration with rounded corners and warm title bars.
+- An optional custom Nusa Obsidian Aurorae window decoration; Breeze is the recommended native window-decoration foundation.
 - A native Plasma layout template for the Nusa Mokka top menu bar and centered bottom dock.
 
 The Plasma style is based on the installed Breeze default theme. The setup script copies that theme into the current user's data directory, then overlays the Nusa metadata and panel artwork. This keeps the full set of standard Plasma assets while version-controlling only the files Nusa changes.
@@ -83,7 +83,7 @@ sh setup.sh
 
 The setup script links the repository's Zsh and Starship configuration, installs the Nusa Obsidian KDE and Konsole color schemes, Plasma Style, Aurorae window decoration, and the Nusa Mokka Plasma layout template under `~/.local/share/plasma/`. Existing shell and color-scheme files are backed up before replacement. The Plasma style is generated from the system's installed Breeze default theme. The script does not install packages, modify system files, or change the login shell.
 
-Select **Nusa Obsidian** under **System Settings → Colors & Themes → Colors**, **System Settings → Colors & Themes → Plasma Style**, and **System Settings → Appearance → Window Decorations**. Select **Papirus-Dark** under **System Settings → Colors & Themes → Icons**. To add the two-panel layout, right-click the desktop, choose **Add Panel → Nusa Mokka**, and let Plasma create the menu bar and dock. This is an opt-in layout action so rerunning setup does not replace an existing panel arrangement. If a style or template does not appear immediately, log out and back in.
+Select **Nusa Obsidian** under **System Settings → Colors & Themes → Colors** and **System Settings → Colors & Themes → Plasma Style**. For window decorations, select **Breeze** under **System Settings → Colors & Themes → Window Decorations** and open its configuration. Choose **Small** or **Tiny** button size, enable the circle around the close button if desired, and disable the title-bar gradient for the flatter Nusa look. Keep the Nusa Obsidian color scheme selected; Breeze supplies the native button behavior and layout while Nusa supplies the palette. The custom **Nusa Obsidian** Aurorae decoration is still installed as an optional alternative. Select it in Window Decorations if you prefer the fully custom rounded title bar. Select **Papirus-Dark** under **System Settings → Colors & Themes → Icons**. To add the two-panel layout, right-click the desktop, choose **Add Panel → Nusa Mokka**, and let Plasma create the menu bar and dock. This is an opt-in layout action so rerunning setup does not replace an existing panel arrangement. If a style or template does not appear immediately, log out and back in.
 
 ## Kvantum
 
