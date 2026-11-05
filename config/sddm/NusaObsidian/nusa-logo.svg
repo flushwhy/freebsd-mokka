@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="320" height="92" viewBox="0 0 320 92">
   <g fill="none" stroke="#B47750" stroke-width="2">
-    <path d="M20 16h28v28H20z" rx="6"/>
+    <rect x="20" y="16" width="28" height="28" rx="6"/>
     <path d="M27 37V23l14 14V23"/>
   </g>
   <text x="62" y="43" fill="#E8E3DA" font-family="Cantarell, sans-serif" font-size="27" font-weight="600" letter-spacing="5">NUSA</text>
