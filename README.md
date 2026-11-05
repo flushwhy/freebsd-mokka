@@ -70,7 +70,7 @@ In **System Settings → Colors & Themes → Fonts**, choose Cantarell for the g
 Install the shell tools and desktop theme packages as needed:
 
 ```sh
-sudo pkg install git zsh starship zsh-autosuggestions zsh-syntax-highlighting zsh-completions fzf zoxide eza bat fd ripgrep fastfetch btop kvantum papirus-icon-theme
+sudo pkg install git zsh starship zsh-autosuggestions zsh-syntax-highlighting zsh-completions fzf zoxide eza bat fd ripgrep fastfetch btop nerd-fonts-jetbrainsmono kvantum papirus-icon-theme
 ```
 
 Run the setup as your regular desktop user:
@@ -101,7 +101,7 @@ Then select **NusaObsidian** in Kvantum Manager and ensure **Kvantum** is select
 
 ## Terminal
 
-The Konsole color scheme uses Nusa's obsidian background, warm ivory text, and restrained copper accents. After running setup, open **Konsole → Settings → Edit Current Profile → Appearance** and select **Nusa Obsidian**. Set the profile font to **JetBrains Mono** at a comfortable size (start at 10–11 pt).
+The Konsole color scheme uses Nusa's obsidian background, warm ivory text, and restrained copper accents. After running setup, open **Konsole → Settings → Edit Current Profile → Appearance** and select **Nusa Obsidian**. Set the profile font to **JetBrainsMono Nerd Font** at a comfortable size (start at 10–11 pt). This includes the extra symbols used by Starship and modern terminal tools.
 
 The Zsh configuration enables command autosuggestions, syntax highlighting, case-insensitive completion, and fuzzy shortcuts. `Ctrl+R` searches command history, `Ctrl+T` finds files, and `Alt+C` jumps to a directory with fzf. `z` uses zoxide's directory history. `eza` provides enhanced listings, `bat` is available as `c`, `v` opens Neovim, and `fastfetch` shows a system summary when a new interactive shell starts.
 
