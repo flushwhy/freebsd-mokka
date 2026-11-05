@@ -10,7 +10,7 @@ usage() {
 Usage: sh setup.sh
 
 Link the Mokka Zsh and Starship configuration, install the Nusa Obsidian KDE
-color scheme, and install the Nusa Plasma Style for the current user.
+color scheme, Nusa Plasma Style, and Nusa Aurorae window decoration for the current user.
 Existing shell and color-scheme files are backed up first. No packages are
 installed, system files are changed, or login shell is changed.
 EOF
