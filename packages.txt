@@ -1,5 +1,6 @@
 # Core workstation tools
 git
+neovim
 zsh
 starship
 
