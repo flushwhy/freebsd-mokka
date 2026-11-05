@@ -2,7 +2,18 @@
 
 add_newline = false
 command_timeout = 1000
-format = "$directory$git_branch$git_status$cmd_duration$line_break$character"
+format = "$username$hostname in $directory$git_branch$git_status$cmd_duration$line_break$character"
+
+[username]
+style_user = "bold #e8e3da"
+style_root = "bold #c76b61"
+format = "[$user]($style)"
+show_always = true
+
+[hostname]
+ssh_only = false
+style = "bold #b47750"
+format = "[@$hostname]($style)"
 
 [directory]
 style = "bold #c49a75"
@@ -25,6 +36,6 @@ format = " [$duration]($style)"
 style = "#8f8175"
 
 [character]
-success_symbol = "[❯](bold #c49a75)"
-error_symbol = "[❯](bold #c76b61)"
-vimcmd_symbol = "[❮](bold #a8a08e)"
+success_symbol = "[ -#](bold #b47750)"
+error_symbol = "[ -#](bold #c76b61)"
+vimcmd_symbol = "[ -#](bold #a8a08e)"
