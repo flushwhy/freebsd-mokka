@@ -87,7 +87,7 @@ Select **Nusa Obsidian** under **System Settings → Colors & Themes → Colors*
 
 ## Login screen (SDDM)
 
-Nusa Obsidian includes a Qt 6 SDDM theme based on KDE Breeze 6.7.5. It keeps Breeze's login flow, user/session selection, virtual keyboard, and power actions, while adding a custom obsidian wallpaper, Nusa wordmark, and warm palette for Breeze's native greeter controls. The wallpaper and palette are intentionally restrained so the login form remains the focus.
+Nusa Obsidian includes a Qt 6 SDDM theme based on KDE Breeze 6.7.5. It keeps Breeze's login flow, user/session selection, virtual keyboard, and power actions, while adding a custom obsidian wallpaper, Nusa wordmark, and warm palette for Breeze's native greeter controls. Its login fields sit on a subtly rounded espresso surface, with dark rounded inputs and copper focus borders. The authentication flow, user selection, and session actions remain based on Breeze.
 
 Install it after cloning the repository:
 
@@ -95,7 +95,7 @@ Install it after cloning the repository:
 sudo sh install-sddm.sh
 ```
 
-The installer copies the installed Breeze theme into `/usr/local/share/sddm/themes/NusaObsidian`, then overlays the Nusa theme settings, wallpaper, logo, and palette-tuned `Main.qml` based on Plasma 6.7.5. It backs up an existing Nusa theme before replacing it and leaves Breeze untouched as a fallback.
+The installer copies the installed Breeze theme into `/usr/local/share/sddm/themes/NusaObsidian`, then overlays the Nusa theme settings, wallpaper, logo, palette-tuned `Main.qml`, and rounded `Login.qml` based on Plasma 6.7.5. It backs up an existing Nusa theme before replacing it and leaves Breeze untouched as a fallback.
 
 Then open **System Settings → Colors & Themes → Login Screen (SDDM)**, select **Nusa Obsidian**, and apply. To revert, select **Breeze** in the same settings page. The installer changes theme files only; it does not change the active SDDM theme automatically.
 
