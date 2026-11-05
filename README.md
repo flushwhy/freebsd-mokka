@@ -56,6 +56,16 @@ sudo pkg install cantarell-fonts jetbrains-mono
 
 In **System Settings → Colors & Themes → Fonts**, choose Cantarell for the general, small, toolbar, and menu fonts. Set the fixed-width font to JetBrains Mono. Start with 10 pt for the interface and 10 pt for fixed-width text, then adjust for display scaling and readability. Apply the changes; restart applications that keep their own font settings.
 
+## Nusa Tune
+
+Nusa Tune begins as a read-only FreeBSD diagnostics script. It records the release, CPU, VM type, scheduler, CPU frequency driver, network processing, and selected memory settings so future tweaks can be matched to real hardware and evidence. It does not change kernel or system settings. See [the tuning evidence and decisions](docs/tuning-evidence.md) before proposing any tweak.
+
+Run it with:
+
+```sh
+sh nusa-tune.sh inspect
+```
+
 ## Requirements
 
 - FreeBSD 15
