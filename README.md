@@ -85,6 +85,20 @@ The setup script links the repository's Zsh and Starship configuration, installs
 
 Select **Nusa Obsidian** under **System Settings → Colors & Themes → Colors** and **System Settings → Colors & Themes → Plasma Style**. For window decorations, select **Breeze** under **System Settings → Colors & Themes → Window Decorations** and open its configuration. Choose **Small** or **Tiny** button size, enable the circle around the close button if desired, and disable the title-bar gradient for the flatter Nusa look. Keep the Nusa Obsidian color scheme selected; Breeze supplies the native button behavior and layout while Nusa supplies the palette. The custom **Nusa Obsidian** Aurorae decoration is still installed as an optional alternative. Select it in Window Decorations if you prefer the fully custom rounded title bar. Select **Papirus-Dark** under **System Settings → Colors & Themes → Icons**. To add the two-panel layout, right-click the desktop, choose **Add Panel → Nusa Mokka**, and let Plasma create the menu bar and dock. This is an opt-in layout action so rerunning setup does not replace an existing panel arrangement. If a style or template does not appear immediately, log out and back in.
 
+## Login screen (SDDM)
+
+Nusa Obsidian includes a Qt 6 SDDM theme built from the installed KDE Breeze theme. It keeps Breeze's login flow, user/session selection, virtual keyboard, and power actions, while adding the Nusa name, wordmark, and obsidian background. The first pass intentionally uses a solid background; wallpaper and finer login-card styling can be tuned after testing on the actual greeter.
+
+Install it after cloning the repository:
+
+```sh
+sudo sh install-sddm.sh
+```
+
+The installer copies the installed Breeze theme into `/usr/local/share/sddm/themes/NusaObsidian`, then overlays the Nusa theme settings and logo. It backs up an existing Nusa theme before replacing it and leaves Breeze untouched as a fallback.
+
+Then open **System Settings → Colors & Themes → Login Screen (SDDM)**, select **Nusa Obsidian**, and apply. To revert, select **Breeze** in the same settings page. The installer changes theme files only; it does not change the active SDDM theme automatically.
+
 ## Kvantum
 
 The matching Kvantum palette is in `config/kvantum/NusaObsidian.kvconfig`. For now, use the installed `KvBrown.svg` as the widget-shape base:
