@@ -62,7 +62,7 @@ In **System Settings → Colors & Themes → Fonts**, choose Cantarell for the g
 - KDE Plasma 6 (installed separately)
 - Git
 - Neovim
-- NvChad (bootstrapped by `setup.sh` when no Neovim config exists)
+- Flush Nvim: the maintained NvChad configuration from `flushwhy/nvim`
 - Zsh
 - Starship
 - Kvantum for the custom Qt widget style
@@ -123,7 +123,7 @@ For the translucent background to blur the desktop behind Konsole, enable **Blur
 
 The Zsh configuration enables command autosuggestions, syntax highlighting, case-insensitive completion, and fuzzy shortcuts. `Ctrl+R` searches command history, `Ctrl+T` finds files, and `Alt+C` jumps to a directory with fzf. `z` uses zoxide's directory history. `eza` provides enhanced listings, `bat` is available as `c`, `v` opens Neovim, and `fastfetch` shows a system summary when a new interactive shell starts.
 
-The Neovim aliases point to the existing `nvim` installation. During setup, if Neovim is installed and `~/.config/nvim` is missing, the installer clones the official NvChad starter into that path. Existing Neovim configurations are left untouched. Open Neovim once after setup to finish installing NvChad's plugins.
+The Neovim aliases point to the existing `nvim` installation. During setup, the installer clones [Flush Nvim](https://github.com/flushwhy/nvim) into `~/.config/nvim`. If the official NvChad starter is already there, it is backed up before migration. Any other existing Neovim configuration is left untouched. Flush Nvim keeps NvChad as an upstream lazy.nvim dependency, so updates remain separate from your personal configuration.
 
 ## Shell
 
