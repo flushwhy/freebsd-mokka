@@ -6,3 +6,7 @@ starship
 # Desktop theming
 kvantum
 papirus-icon-theme
+
+# Typography
+cantarell-fonts
+jetbrains-mono
