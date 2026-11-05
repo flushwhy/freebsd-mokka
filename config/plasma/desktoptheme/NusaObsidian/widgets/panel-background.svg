@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <svg xmlns="http://www.w3.org/2000/svg"
      xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-     width="240" height="112" viewBox="0 0 240 112">
+     width="240" height="160" viewBox="0 0 240 160">
   <title>Nusa Obsidian Plasma panel background</title>
   <defs>
     <style>
@@ -9,7 +9,7 @@
     </style>
   </defs>
 
-  <!-- Nine-slice frame used by ordinary panel rendering. -->
+  <!-- Standard nine-slice frame for non-floating panels. -->
   <path id="topleft" inkscape:label="#topleft" class="panel"
         d="M16 0 H32 V32 H0 V16 A16 16 0 0 1 16 0Z"/>
   <rect id="top" inkscape:label="#top" class="panel" x="32" y="0" width="48" height="32"/>
@@ -24,17 +24,35 @@
   <path id="bottomright" inkscape:label="#bottomright" class="panel"
         d="M80 80 H112 V96 A16 16 0 0 1 96 112 H80Z"/>
 
-  <!-- Floating-panel frame: a fully rounded Nusa pill. -->
-  <rect id="floating-center" inkscape:label="#floating-center"
-        class="panel" x="40" y="0" width="160" height="48" rx="24" ry="24"/>
+  <!-- Complete floating nine-slice frame. 24px corners create the pill ends. -->
+  <path id="floating-topleft" inkscape:label="#floating-topleft" class="panel"
+        d="M120 0 H144 V48 H96 V24 A24 24 0 0 1 120 0Z"/>
+  <rect id="floating-top" inkscape:label="#floating-top" class="panel"
+        x="144" y="0" width="48" height="48"/>
+  <path id="floating-topright" inkscape:label="#floating-topright" class="panel"
+        d="M192 0 H216 A24 24 0 0 1 240 24 V48 H192Z"/>
+  <rect id="floating-left" inkscape:label="#floating-left" class="panel"
+        x="96" y="48" width="48" height="48"/>
+  <rect id="floating-center" inkscape:label="#floating-center" class="panel"
+        x="144" y="48" width="48" height="48"/>
+  <rect id="floating-right" inkscape:label="#floating-right" class="panel"
+        x="192" y="48" width="48" height="48"/>
+  <path id="floating-bottomleft" inkscape:label="#floating-bottomleft" class="panel"
+        d="M96 96 H144 V144 H120 A24 24 0 0 1 96 120Z"/>
+  <rect id="floating-bottom" inkscape:label="#floating-bottom" class="panel"
+        x="144" y="96" width="48" height="48"/>
+  <path id="floating-bottomright" inkscape:label="#floating-bottomright" class="panel"
+        d="M192 96 H240 V120 A24 24 0 0 1 216 144 H192Z"/>
+
+  <!-- Floating margins: 8px breathing room around the panel. -->
   <rect id="floating-hint-top-margin" inkscape:label="#floating-hint-top-margin"
-        x="0" y="64" width="1" height="8" fill="none"/>
+        x="0" y="150" width="1" height="8" fill="none"/>
   <rect id="floating-hint-bottom-margin" inkscape:label="#floating-hint-bottom-margin"
-        x="2" y="64" width="1" height="8" fill="none"/>
+        x="2" y="150" width="1" height="8" fill="none"/>
   <rect id="floating-hint-left-margin" inkscape:label="#floating-hint-left-margin"
-        x="8" y="80" width="10" height="1" fill="none"/>
+        x="8" y="150" width="8" height="1" fill="none"/>
   <rect id="floating-hint-right-margin" inkscape:label="#floating-hint-right-margin"
-        x="20" y="80" width="10" height="1" fill="none"/>
+        x="20" y="150" width="8" height="1" fill="none"/>
   <rect id="hint-stretch-borders" inkscape:label="#hint-stretch-borders"
-        x="0" y="104" width="1" height="1" fill="none"/>
+        x="32" y="150" width="1" height="1" fill="none"/>
 </svg>
