@@ -61,6 +61,8 @@ In **System Settings → Colors & Themes → Fonts**, choose Cantarell for the g
 - FreeBSD 15
 - KDE Plasma 6 (installed separately)
 - Git
+- Neovim
+- NvChad (bootstrapped by `setup.sh` when no Neovim config exists)
 - Zsh
 - Starship
 - Kvantum for the custom Qt widget style
@@ -70,7 +72,7 @@ In **System Settings → Colors & Themes → Fonts**, choose Cantarell for the g
 Install the shell tools and desktop theme packages as needed:
 
 ```sh
-sudo pkg install git zsh starship zsh-autosuggestions zsh-syntax-highlighting zsh-completions fzf zoxide eza bat fd ripgrep fastfetch btop nerd-fonts-jetbrainsmono kvantum papirus-icon-theme
+sudo pkg install git neovim zsh starship zsh-autosuggestions zsh-syntax-highlighting zsh-completions fzf zoxide eza bat fd ripgrep fastfetch btop nerd-fonts-jetbrainsmono kvantum papirus-icon-theme
 ```
 
 Run the setup as your regular desktop user:
