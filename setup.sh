@@ -58,13 +58,14 @@ install_plasma_style() {
     fi
 
     theme_dir="$DATA_DIR/plasma/desktoptheme/NusaObsidian"
-    mkdir -p "$theme_dir/widgets"
+    mkdir -p "$theme_dir/widgets" "$theme_dir/solid/widgets"
 
-    # Keep Breeze's complete set of standard Plasma assets and override only
-    # the Nusa metadata and panel artwork maintained in this repository.
+    # Keep Breeze's complete set of standard Plasma assets and override the
+    # Nusa metadata plus both translucent and opaque panel backgrounds.
     cp -R "$default_theme/." "$theme_dir/"
     cp "$ROOT/config/plasma/desktoptheme/NusaObsidian/metadata.json" "$theme_dir/metadata.json"
     cp "$ROOT/config/plasma/desktoptheme/NusaObsidian/widgets/panel-background.svg" "$theme_dir/widgets/panel-background.svg"
+    cp "$ROOT/config/plasma/desktoptheme/NusaObsidian/widgets/panel-background.svg" "$theme_dir/solid/widgets/panel-background.svg"
 
     printf 'Installed Nusa Obsidian Plasma Style: %s\n' "$theme_dir"
 }
