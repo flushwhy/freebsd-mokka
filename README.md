@@ -121,7 +121,7 @@ For the translucent background to blur the desktop behind Konsole, enable **Blur
 
 The Zsh configuration enables command autosuggestions, syntax highlighting, case-insensitive completion, and fuzzy shortcuts. `Ctrl+R` searches command history, `Ctrl+T` finds files, and `Alt+C` jumps to a directory with fzf. `z` uses zoxide's directory history. `eza` provides enhanced listings, `bat` is available as `c`, `v` opens Neovim, and `fastfetch` shows a system summary when a new interactive shell starts.
 
-The Neovim aliases point to the existing `nvim` installation; NvChad remains your Neovim configuration and is not overwritten.
+The Neovim aliases point to the existing `nvim` installation. During setup, if Neovim is installed and `~/.config/nvim` is missing, the installer clones the official NvChad starter into that path. Existing Neovim configurations are left untouched. Open Neovim once after setup to finish installing NvChad's plugins.
 
 ## Shell
 
