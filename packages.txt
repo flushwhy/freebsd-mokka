@@ -23,3 +23,4 @@ papirus-icon-theme
 # Typography
 cantarell-fonts
 jetbrains-mono
+nerd-fonts-jetbrainsmono
