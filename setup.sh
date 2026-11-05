@@ -126,26 +126,56 @@ install_plasma_style() {
 
 install_nvchad() {
     target_dir="$CONFIG_DIR/nvim"
+    temp_dir="$CONFIG_DIR/nvim.install.$"
+    backup_dir=""
 
     if ! command -v nvim >/dev/null 2>&1; then
-        printf 'Neovim not found; skipping NvChad. Install Neovim, then rerun setup.sh.\n'
-        return
-    fi
-
-    if [ -e "$target_dir" ] || [ -L "$target_dir" ]; then
-        printf 'Neovim config already exists; leaving it untouched: %s\n' "$target_dir"
+        printf 'Neovim not found; skipping Flush Nvim. Install Neovim, then rerun setup.sh.\n'
         return
     fi
 
     if ! command -v git >/dev/null 2>&1; then
-        printf 'Git not found; skipping NvChad. Install git and rerun setup.sh.\n'
+        printf 'Git not found; skipping Flush Nvim. Install git, then rerun setup.sh.\n'
         return
     fi
 
+    if [ -e "$target_dir" ] || [ -L "$target_dir" ]; then
+        origin=""
+        if [ -d "$target_dir" ]; then
+            origin=$(git -C "$target_dir" remote get-url origin 2>/dev/null || true)
+        fi
+
+        case "$origin" in
+            https://github.com/NvChad/starter|https://github.com/NvChad/starter.git|git@github.com:NvChad/starter.git)
+                backup_dir="$target_dir.starter-backup.$(date +%Y%m%d%H%M%S)"
+                mv "$target_dir" "$backup_dir"
+                printf 'Backed up the old NvChad starter to %s\n' "$backup_dir"
+                ;;
+            https://github.com/flushwhy/nvim|https://github.com/flushwhy/nvim.git|git@github.com:flushwhy/nvim.git)
+                printf 'Flush Nvim is already installed: %s\n' "$target_dir"
+                return
+                ;;
+            *)
+                printf 'Existing Neovim config found; leaving it untouched: %s\n' "$target_dir"
+                printf 'Move it aside yourself if you want setup.sh to install Flush Nvim.\n'
+                return
+                ;;
+        esac
+    fi
+
     mkdir -p "$CONFIG_DIR"
-    git clone https://github.com/NvChad/starter "$target_dir"
-    printf 'Installed NvChad starter: %s\n' "$target_dir"
-    printf 'Open Neovim once to finish installing NvChad plugins.\n'
+    if ! git clone https://github.com/flushwhy/nvim.git "$temp_dir"; then
+        rm -rf "$temp_dir"
+        if [ -n "$backup_dir" ]; then
+            mv "$backup_dir" "$target_dir"
+        fi
+        printf 'Could not clone Flush Nvim. Check GitHub access and try again.\n' >&2
+        return 1
+    fi
+
+    mv "$temp_dir" "$target_dir"
+    printf 'Installed Flush Nvim (NvChad config): %s\n' "$target_dir"
+    printf 'Open Neovim and let lazy.nvim install plugins, then run :MasonInstallAll and :TSUpdate.\n'
 }
 
 case "${1:-}" in
