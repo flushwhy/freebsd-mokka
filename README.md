@@ -20,7 +20,8 @@ Use copper sparingly. Keep large surfaces neutral and dark; sand and ivory provi
 
 The repository currently provides:
 
-- Zsh and Starship configuration.
+- An enhanced Zsh setup with autosuggestions, syntax highlighting, fuzzy search, and Starship.
+- A matching Nusa Obsidian Konsole color scheme.
 - The Nusa Obsidian KDE color scheme.
 - A matching Kvantum configuration.
 - A Plasma 6 desktop theme with rounded floating-panel artwork.
@@ -69,7 +70,7 @@ In **System Settings → Colors & Themes → Fonts**, choose Cantarell for the g
 Install the shell tools and desktop theme packages as needed:
 
 ```sh
-sudo pkg install git zsh starship kvantum papirus-icon-theme
+sudo pkg install git zsh starship zsh-autosuggestions zsh-syntax-highlighting zsh-completions fzf zoxide eza bat fd ripgrep fastfetch btop kvantum papirus-icon-theme
 ```
 
 Run the setup as your regular desktop user:
@@ -80,7 +81,7 @@ cd freebsd-mokka
 sh setup.sh
 ```
 
-The setup script links the repository's Zsh and Starship configuration, installs the Nusa Obsidian KDE color scheme, Plasma Style, Aurorae window decoration, and the Nusa Mokka Plasma layout template under `~/.local/share/plasma/`. Existing shell and color-scheme files are backed up before replacement. The Plasma style is generated from the system's installed Breeze default theme. The script does not install packages, modify system files, or change the login shell.
+The setup script links the repository's Zsh and Starship configuration, installs the Nusa Obsidian KDE and Konsole color schemes, Plasma Style, Aurorae window decoration, and the Nusa Mokka Plasma layout template under `~/.local/share/plasma/`. Existing shell and color-scheme files are backed up before replacement. The Plasma style is generated from the system's installed Breeze default theme. The script does not install packages, modify system files, or change the login shell.
 
 Select **Nusa Obsidian** under **System Settings → Colors & Themes → Colors**, **System Settings → Colors & Themes → Plasma Style**, and **System Settings → Appearance → Window Decorations**. Select **Papirus-Dark** under **System Settings → Colors & Themes → Icons**. To add the two-panel layout, right-click the desktop, choose **Add Panel → Nusa Mokka**, and let Plasma create the menu bar and dock. This is an opt-in layout action so rerunning setup does not replace an existing panel arrangement. If a style or template does not appear immediately, log out and back in.
 
@@ -97,6 +98,14 @@ cp config/kvantum/NusaObsidian.kvconfig \
 ```
 
 Then select **NusaObsidian** in Kvantum Manager and ensure **Kvantum** is selected under **System Settings → Colors & Themes → Application Style**. The SVG provides the existing Mokka-like widget geometry; the config supplies Nusa's palette.
+
+## Terminal
+
+The Konsole color scheme uses Nusa's obsidian background, warm ivory text, and restrained copper accents. After running setup, open **Konsole → Settings → Edit Current Profile → Appearance** and select **Nusa Obsidian**. Set the profile font to **JetBrains Mono** at a comfortable size (start at 10–11 pt).
+
+The Zsh configuration enables command autosuggestions, syntax highlighting, case-insensitive completion, and fuzzy shortcuts. `Ctrl+R` searches command history, `Ctrl+T` finds files, and `Alt+C` jumps to a directory with fzf. `z` uses zoxide's directory history. `eza` provides enhanced listings, `bat` is available as `c`, `v` opens Neovim, and `fastfetch` shows a system summary when a new interactive shell starts.
+
+The Neovim aliases point to the existing `nvim` installation; NvChad remains your Neovim configuration and is not overwritten.
 
 ## Shell
 
