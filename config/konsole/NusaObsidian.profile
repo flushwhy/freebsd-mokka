@@ -1,6 +1,6 @@
 [Appearance]
 ColorScheme=NusaObsidian
-Font=JetBrainsMono Nerd Font,10,-1,5,50,0,0,0,0,0,0,0,0,0
+Font=JetBrainsMono Nerd Font,10,-1,5,50,0,0,0,0,0
 
 [General]
 Name=Nusa Obsidian
