@@ -16,5 +16,6 @@
   "KPackageStructure": "Plasma/LayoutTemplate",
   "X-Plasma-ContainmentCategories": [
     "panel"
-  ]
+  ],
+  "X-KDE-PluginInfo-Name": "nusa-mokka"
 }
