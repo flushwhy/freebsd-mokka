@@ -112,5 +112,6 @@ install_aurorae_theme
 printf '\nNusa shell and KDE configuration installed.\n'
 printf 'Select Nusa Obsidian in System Settings > Colors & Themes > Colors and Plasma Style.\n'
 printf 'Select Nusa Obsidian under System Settings > Appearance > Window Decorations.\n'
+printf 'Install papirus-icon-theme, then select Papirus-Dark under System Settings > Colors & Themes > Icons.\n'
 printf 'Copy the KvBrown SVG to ~/.config/Kvantum/NusaObsidian/NusaObsidian.svg, then select NusaObsidian in Kvantum Manager.\n'
 printf 'To use Zsh as your login shell: chsh -s "$(command -v zsh)"\n'
