@@ -1,40 +1,90 @@
-# Nusa Tune: tuning evidence
+# Nusa Tune: FreeBSD desktop tuning guide
 
-Nusa Tune is deliberately conservative. A setting does not become a default because it appears in a forum post or a copied `sysctl.conf`. It needs a current FreeBSD 15 reference, a clear hardware/workload match, and reproducible evidence that it improves the intended desktop workload without unacceptable regressions.
+Nusa Tune is a general guide to making FreeBSD desktops responsive, reliable, and comfortable across supported hardware. It is not tied to one computer, virtual machine, graphics card, desktop environment, or workload.
 
-## Current decision
+The goal is not to maximize benchmark numbers by collecting sysctl values. Start with a sound FreeBSD installation, working device drivers, and the desktop's native settings. Add system-level tuning only when it addresses a real limitation and has evidence behind it.
 
-**No global kernel performance tunables are enabled.** FreeBSD already dynamically tunes many VM and scheduler behaviors. Nusa Tune starts with read-only inspection so recommendations can be based on the actual machine.
+## General baseline
 
-## Reviewed candidates
+- Keep FreeBSD, packages, and firmware aligned with a supported release and a coherent package repository.
+- Use the correct graphics driver for the GPU. Driver support and acceleration matter more than speculative kernel flags.
+- Keep the default scheduler, virtual-memory behavior, and network processing settings unless measurements identify a bottleneck.
+- Use the desktop environment's own controls for compositor effects, animation, scaling, and application startup.
+- Enable only services the machine actually needs.
+- Measure the workload before and after a change. Responsiveness, frame pacing, audio dropouts, battery life, and thermal behavior can matter more than peak throughput.
 
-| Candidate | Evidence | Decision |
-|---|---|---|
-| `kern.sched.preempt_thresh=224` | Common in older desktop-tuning posts. FreeBSD 15 forum discussion documents the scheduler OID moving under `kern.sched.ule.preempt_thresh`; another recent discussion explains ULE's interactive scoring and advises against changing it without a workload-specific reason. | **Exclude from defaults.** Old values and old OID names are not a proven universal desktop improvement. |
-| `kern.sched.ule.interact` | ULE already detects interactive tasks. Recent FreeBSD forum discussion describes its default as 30 and cautions that changing it can disable the intended scoring behavior at extremes. | **Leave at default.** |
-| `powerd` / `powerdxx` | FreeBSD Handbook documents CPU frequency control, but notes Intel Speed Shift's `hwpstate_intel` driver supersedes the old powerd behavior on supported systems. | **Hardware-specific only.** Never enable blindly; skip VMware guests and systems using the HWP driver unless a specific supported use case is demonstrated. |
-| Intel LinuxKPI graphics tunables | FreeBSD Handbook documents these for Intel graphics using `drm-kmod`. | **Driver-specific only.** Not applicable to VMware's virtual display adapter. |
-| `net.isr.*` multicore settings | A 2026 forum user reports a positive desktop network experience, but the thread does not establish a general, controlled performance result. | **Do not enable by default.** Consider only for a measured network-processing bottleneck. |
-| ZFS ARC limits | Forum discussion includes anecdotal values and later reports that the original perceived slowdown had another cause. | **Do not tune by default.** Use only when measured memory pressure or workload-specific evidence supports it. |
-| `kern.ipc.shm_allow_removed` | Appears in older desktop posts as a Chromium compatibility setting. | **Compatibility-only.** Apply only if a specific application requires it, not as a speed tweak. |
+FreeBSD already manages many scheduler, memory, and device behaviors dynamically. There is no defensible universal list of sysctl values that makes every FreeBSD desktop faster.
 
-## Sources
+## Tuning areas
 
-- [FreeBSD Handbook: Configuration, Services, Logging and Power Management](https://docs.freebsd.org/en/books/handbook/config/) — sysctl behavior, CPU frequency control, Intel Speed Shift, and Intel graphics power settings.
-- [FreeBSD Architecture Handbook: Virtual Memory](https://docs.freebsd.org/en/books/arch-handbook/vm/) — explains that FreeBSD dynamically tunes VM behavior and discourages unnecessary manual VM tuning.
+### CPU scheduling and responsiveness
+
+FreeBSD's scheduler is designed to balance interactive and throughput workloads. Leave scheduler tunables at their defaults unless a repeatable test demonstrates a specific problem. Old desktop-tuning posts often carry values or OID names from earlier FreeBSD releases; do not copy them without checking the current release's manual pages and defaults.
+
+### CPU frequency and power
+
+CPU frequency policy is platform- and driver-dependent. FreeBSD supports several frequency-control mechanisms, including `cpufreq`, `est`, and `hwpstate_intel`. Tools such as `powerd` or `powerdxx` are not interchangeable with every driver; the Handbook notes that Intel Speed Shift systems using `hwpstate_intel` are handled differently.
+
+Treat power policy as a choice between responsiveness, heat, noise, and battery life—not as a universal performance switch. Verify the active driver and supported controls before changing anything.
+
+### Graphics and display
+
+Prioritize a supported driver and working hardware acceleration. Intel, AMD, and NVIDIA use different driver paths; a setting documented for one driver must not be applied to another. Hybrid graphics, external displays, suspend/resume, and Wayland support should be validated independently.
+
+The FreeBSD Handbook documents Intel LinuxKPI graphics power options for systems using the relevant Intel DRM driver. They are not general graphics tunables.
+
+### Memory and storage
+
+Do not impose generic ZFS ARC limits or VM tunables on all desktops. Filesystem, RAM size, workload, and actual memory pressure matter. FreeBSD's VM system already adapts many behaviors; change limits only when measurements show a real memory-pressure problem.
+
+### Networking
+
+Keep the default network stack settings unless packet-processing measurements identify a bottleneck. Reports about `net.isr` settings are workload- and hardware-specific and are not enough to justify global defaults.
+
+### Audio and multimedia
+
+Confirm the intended audio device and use the desktop's mixer controls. Device enumeration can make HDMI/DisplayPort audio appear before onboard analog audio; selecting the correct default device is a configuration fix, not a performance tweak. For real-time audio work, evaluate latency and xruns with the actual interface and application rather than applying unrelated kernel recipes.
+
+### Desktop environment
+
+Tune the desktop at the desktop layer first: compositor settings, animation, startup applications, indexing, power profiles, and display scaling. KDE, GNOME, XFCE, and other environments have different controls. A setting that improves one compositor or display server may be irrelevant or harmful in another.
+
+## Hardware-specific options
+
+Some optimizations are valid only for a specific driver, CPU feature, filesystem, or device. Keep these as clearly labeled optional guidance, state the prerequisite, and link to the authoritative documentation. Never make them global defaults.
+
+Examples:
+
+- Intel DRM power options apply only to the documented Intel graphics driver path.
+- CPU frequency tools depend on the active frequency driver and CPU capabilities.
+- GPU-specific settings must match the installed driver and supported hardware.
+- ZFS memory limits should be considered only with evidence of memory pressure and an understanding of the workload.
+
+## Reviewed tuning candidates
+
+| Candidate | General recommendation |
+|---|---|
+| Scheduler tunables such as `kern.sched.ule.*` | Keep defaults; require a reproducible workload-specific result. |
+| `powerd` / `powerdxx` | Conditional; verify the CPU frequency driver and supported mechanism first. |
+| Intel `compat.linuxkpi.*` graphics options | Conditional; Intel DRM driver only, following current Handbook guidance. |
+| `net.isr.*` | Keep defaults absent a measured network-processing bottleneck. |
+| ZFS ARC limits | Keep defaults absent measured memory pressure and workload-specific evidence. |
+| `kern.ipc.shm_allow_removed` | Compatibility setting only when an application requires it; not a speed tweak. |
+
+## Rules for adding a recommendation
+
+1. Confirm the setting exists and verify its meaning and default on supported FreeBSD releases.
+2. Identify the prerequisite hardware, driver, filesystem, or workload.
+3. Prefer official documentation and reproducible measurements over copied configuration snippets.
+4. Record both the benefit and any cost: regressions, power use, heat, stability, or security.
+5. Keep conditional changes opt-in and explain how to reverse them.
+6. If the evidence is weak or narrowly anecdotal, document it as an experiment—or leave it out.
+
+## References
+
+- [FreeBSD Handbook: Configuration, Services, Logging and Power Management](https://docs.freebsd.org/en/books/handbook/config/) — CPU frequency control, power management, and driver-specific graphics options.
+- [FreeBSD Handbook: Desktop Environments](https://docs.freebsd.org/en/books/handbook/desktop/) — supported desktop environments and their setup.
+- [FreeBSD Handbook: X Window System](https://docs.freebsd.org/en/books/handbook/x11/) — graphics drivers and display configuration.
+- [FreeBSD Handbook: Multimedia](https://docs.freebsd.org/en/books/handbook/multimedia/) — audio devices and multimedia configuration.
+- [FreeBSD Architecture Handbook: Virtual Memory](https://docs.freebsd.org/en/books/arch-handbook/vm/) — FreeBSD memory management.
 - [FreeBSD tuning(7)](https://man.freebsd.org/cgi/man.cgi?query=tuning) — official performance-tuning guidance.
-- [FreeBSD Forums: kern.sched.preemp_tresh (July 2026)](https://forums.freebsd.org/threads/kern-sched-preemp_tresh.103259/) — FreeBSD 15 scheduler OID changes and ULE interactive scheduling discussion.
-- [FreeBSD Forums: Tuning for Desktop Use](https://forums.freebsd.org/threads/tuning-for-desktop-use.73849/) — community examples; settings are not treated as universal defaults.
-- [FreeBSD Forums: multicore net.isr](https://forums.freebsd.org/threads/beautiful-desktop-net-performance-with-multicore-net-isr.102356/) — promising report, not sufficient by itself for a default.
-- [FreeBSD Forums: VMware and KDE](https://forums.freebsd.org/threads/trying-to-run-kde-6-plasma-with-wayland.93951/page-36) — current discussion of VMware's virtual graphics limitations on FreeBSD.
-
-## Rules for adding a tweak
-
-1. Confirm the setting exists on the target FreeBSD release and identify its default.
-2. Record the exact hardware, driver, filesystem, and workload where it helped.
-3. Prefer repeatable before/after measurements over subjective claims alone.
-4. Check for regressions, power/thermal costs, and security implications.
-5. Make it conditional when the evidence is hardware-specific.
-6. Keep it out if the evidence is anecdotal, outdated, or cannot be reproduced.
-
-The `nusa-tune.sh inspect` command collects a read-only snapshot to help determine whether a candidate applies. It does not change system settings.
