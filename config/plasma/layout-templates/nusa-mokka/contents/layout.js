@@ -9,21 +9,32 @@ function addIfAvailable(panel, widgetType) {
     return null;
 }
 
-// Top menu bar.
+// Flat, full-width top menu bar.
 var menuBar = new Panel;
 menuBar.location = "top";
+menuBar.floating = false;
 menuBar.height = 36;
 menuBar.lengthMode = "fill";
-menuBar.alignment = "center";
+menuBar.alignment = "left";
 menuBar.hiding = "none";
 
 addIfAvailable(menuBar, "org.kde.plasma.kickoff");
 addIfAvailable(menuBar, "org.kde.plasma.panelspacer");
 addIfAvailable(menuBar, "org.kde.plasma.lock_logout");
-addIfAvailable(menuBar, "org.kde.plasma.digitalclock");
 addIfAvailable(menuBar, "org.kde.plasma.search");
 addIfAvailable(menuBar, "org.kde.plasma.volume");
 addIfAvailable(menuBar, "org.kde.plasma.mediacontroller");
+
+var clock = addIfAvailable(menuBar, "org.kde.plasma.digitalclock");
+if (clock) {
+    clock.currentConfigGroup = ["Appearance"];
+    clock.writeConfig("showDate", true);
+    clock.writeConfig("dateFormat", "custom");
+    clock.writeConfig("customDateFormat", "ddd MMM d");
+    clock.writeConfig("dateDisplayFormat", 1);
+    clock.writeConfig("use24hFormat", 0);
+    clock.writeConfig("showSeconds", 0);
+}
 
 // Bottom dock.
 var dock = new Panel;
