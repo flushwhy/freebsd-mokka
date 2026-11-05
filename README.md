@@ -42,6 +42,18 @@ sudo pkg install papirus-icon-theme
 
 Then open **System Settings → Colors & Themes → Icons**, select **Papirus-Dark**, and apply it. If it does not appear, log out and back in.
 
+## Typography
+
+Use **Cantarell** for the desktop interface and **JetBrains Mono** for terminals and code. Cantarell has a humanist shape that stays readable at KDE UI sizes; JetBrains Mono gives terminal text a distinct, consistent rhythm. Both are available as FreeBSD packages.
+
+Install them with:
+
+```sh
+sudo pkg install cantarell-fonts jetbrains-mono
+```
+
+In **System Settings → Colors & Themes → Fonts**, choose Cantarell for the general, small, toolbar, and menu fonts. Set the fixed-width font to JetBrains Mono. Start with 10 pt for the interface and 10 pt for fixed-width text, then adjust for display scaling and readability. Apply the changes; restart applications that keep their own font settings.
+
 ## Requirements
 
 - FreeBSD 15
@@ -51,6 +63,7 @@ Then open **System Settings → Colors & Themes → Icons**, select **Papirus-Da
 - Starship
 - Kvantum for the custom Qt widget style
 - Papirus icon theme
+- Cantarell and JetBrains Mono fonts
 
 Install the shell tools and desktop theme packages as needed:
 
