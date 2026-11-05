@@ -35,5 +35,4 @@ dock.hiding = "dodgewindows";
 
 addIfAvailable(dock, "org.kde.plasma.kickoff");
 addIfAvailable(dock, "org.kde.plasma.taskmanager");
-addIfAvailable(dock, "org.kde.plasma.panelspacer");
 addIfAvailable(dock, "org.kde.plasma.trash");
