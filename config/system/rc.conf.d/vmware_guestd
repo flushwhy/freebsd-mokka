@@ -1,0 +1,2 @@
+# Enable VMware Tools guest integration on VMware virtual machines.
+vmware_guestd_enable="YES"

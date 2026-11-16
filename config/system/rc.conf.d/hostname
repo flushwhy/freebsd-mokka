@@ -1,0 +1,3 @@
+# Nusa workstation identity.
+# Change this to the hostname you want this machine to use.
+hostname="nusa"

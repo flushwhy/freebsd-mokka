@@ -93,6 +93,35 @@ The setup script links the repository's Zsh and Starship configuration, installs
 
 Select **Nusa Obsidian** under **System Settings → Colors & Themes → Colors** and **System Settings → Colors & Themes → Plasma Style**. For window decorations, select **Breeze** under **System Settings → Colors & Themes → Window Decorations** and open its configuration. Choose **Small** or **Tiny** button size, enable the circle around the close button if desired, and disable the title-bar gradient for the flatter Nusa look. Keep the Nusa Obsidian color scheme selected; Breeze supplies the native button behavior and layout while Nusa supplies the palette. The custom **Nusa Obsidian** Aurorae decoration is still installed as an optional alternative. Select it in Window Decorations if you prefer the fully custom rounded title bar. Select **Papirus-Dark** under **System Settings → Colors & Themes → Icons**. To add the two-panel layout, right-click the desktop, choose **Add Panel → Nusa Mokka**, and let Plasma create the menu bar and dock. This is an opt-in layout action so rerunning setup does not replace an existing panel arrangement. If a style or template does not appear immediately, log out and back in.
 
+## System configuration
+
+The user-level `setup.sh` intentionally does not modify system files. Use
+`install-system.sh` separately when you want Nusa's small system profile:
+
+```sh
+sudo sh install-system.sh
+```
+
+This installs `/etc/rc.conf.d/hostname`, which sets the default hostname to
+`nusa`, and removes the known invalid `iffconfig_em0` and obsolete
+`vmware_guest_enable` entries from `/etc/rc.conf`. The installer backs up
+`/etc/rc.conf` before cleaning those entries and backs up an existing Nusa
+profile before replacing it. Change the hostname in
+`config/system/rc.conf.d/hostname` before installing if you want a different
+machine name.
+
+For a VMware guest, enable the VMware Tools daemon as well:
+
+```sh
+sudo sh install-system.sh --vmware
+```
+
+That installs `/etc/rc.conf.d/vmware_guestd` with the correct
+`vmware_guestd_enable="YES"` setting. The VMware option is deliberately
+separate so bare-metal installations do not enable a virtual-machine service.
+The installer applies the hostname immediately; service startup follows the
+normal FreeBSD boot process.
+
 ## Login screen (SDDM)
 
 Nusa Obsidian includes a Qt 6 SDDM theme based on KDE Breeze 6.7.5. It keeps Breeze's login flow, user/session selection, virtual keyboard, and power actions, while adding a custom obsidian wallpaper, Nusa wordmark, and warm palette for Breeze's native greeter controls. Its login fields sit on a subtly rounded espresso surface, with dark rounded inputs and copper focus borders. The authentication flow, user selection, and session actions remain based on Breeze.
